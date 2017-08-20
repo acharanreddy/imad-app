@@ -5,6 +5,43 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles:{
+    article-one:{
+        title:'article-one--> charan',
+        heading='Article One',
+        content:` here u r going to get my personal data
+                        ND professional skils too`
+    }
+}
+function createtemplate(data){
+    var title=data.title;
+    var heading=data.heading;
+    var content=data.content;
+    var htmltemplate=`
+    <html>
+    <head>
+        <title>${title}</title>
+        <meta name="viewport"  content="width=device-width,initial-screen=1" />
+         <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+         
+        <div class="container">
+              <div>
+                  <a href='/'>Home</a>
+              </div>
+              <h3>${heading}</h3>
+              <div>
+                
+                   ${content}
+              </div>
+        </div>
+    </body>
+    </html>
+`
+
+
+}
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -16,13 +53,11 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
-app.get('/article-one',function(req,res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));  
+app.get('/articleName',function(req,res){
+    articleName=req.params.articleName;
+  res.send(createtemplate(articles[articleName]));  
 });
 
-app.get('/article-two',function(req,res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));  
-});
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
