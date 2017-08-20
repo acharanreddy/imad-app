@@ -12,6 +12,10 @@ var articles:{
         content:` here u r going to get my personal data
                         ND professional skils too`
     }
+     article-two:{
+        title:'article-two--> charan',
+        heading='Article two',
+        content:` page2:here r the page2 details`}
 }
 function createtemplate(data){
     var title=data.title;
