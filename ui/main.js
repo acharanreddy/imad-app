@@ -21,19 +21,15 @@ button.onclick=function(){
     request.open('GET','http://charanreddyanumula.imad.hasura-app.io/counter',true);
     request.send(null);
 }
-var nameInput=document.getElementById('name');
-var name=nameInput.value;
+//->names-code:
 var submit=document.getElementById('submit_btn');
 submit.onclick=function(){
-    var names=['name1','name2','name3'];
+   /* var names=['name1','name2','name3'];
     var list='';
     for(var i=0;i<names.length;i++)
         {list+='<li>'+names[i]+'</li>';}
-}
-
-var ul=document.getElementById('namelist');
-ul.innerHTML=list;
  //->linkling submit and webpage
+ */
  
  //create a request object
     var request=new XMLHttpRequest();
@@ -42,8 +38,9 @@ ul.innerHTML=list;
         if(request.readystate===XMLHttpRequest.DONE)
         {//take some ACTION
         if(request.status==200)
-        {
-         var names=['name1','name2','name3'];
+        {//capture a list of names and rendure them 
+         var names=request.responseText;
+         names=JSON.parse(names);
           var list='';
          for(var i=0;i<names.length;i++)
         {list+='<li>'+names[i]+'</li>';
@@ -56,5 +53,8 @@ ul.innerHTML=list;
         
     };
     //making the request
-         request.open('GET','http://charanreddyanumula.imad.hasura-app.io/submit-name?name='+name,true);
+    var nameInput=document.getElementById('name');
+    var name=nameInput.value;
+    request.open('GET','http://charanreddyanumula.imad.hasura-app.io/submit-name?name='+name,true);
          request.send(null);
+};
