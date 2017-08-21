@@ -40,7 +40,47 @@ submit.onclick=function(){
         if(request.status==200)
         {//capture a list of names and rendure them 
          var names=request.responseText;
-         names=JSON.parse(names);
+         names=JSON.parse(names);console.log('Loaded!');
+var button=document.getElementById('counter');
+
+button.onclick=function(){
+    //create a request object
+    var request=new XMLHttpRequest();
+    //capturing the response and store it in the variable
+    request.onreadystatechange=function(){
+        if(request.readystate===XMLHttpRequest.DONE)
+        {//take some ACTION
+        if(request.status==200)
+        {
+         var counter=request.responseText;
+         var span=document.getElementById('count')
+         spam.innerHTML=counter.toString();
+         }
+        }
+        
+    };
+    //making the request
+    request.open('GET','http://charanreddyanumula.imad.hasura-app.io/counter',true);
+    request.send(null);
+}
+//->names-code:
+var submit=document.getElementById('submit_btn');
+submit.onclick=function(){
+   /* var names=['name1','name2','name3'];
+    var list='';
+    for(var i=0;i<names.length;i++)
+        {list+='<li>'+names[i]+'</li>';}
+ //->linkling submit and webpage
+ */
+ 
+ //create a request object
+    var request=new XMLHttpRequest();
+    //capturing the response and store it in the variable
+    request.onreadystatechange=function(){
+        if(request.readystate===XMLHttpRequest.DONE)
+        {//take some ACTION
+        if(request.status==200)
+        {//capture a list of names and rendure them
           var list='';
          for(var i=0;i<names.length;i++)
         {list+='<li>'+names[i]+'</li>';
