@@ -1,7 +1,12 @@
 console.log('Loaded!');
 var button=document.getElementById('counter');
-
+var counter=0;
 button.onclick=function(){
+  counter=counter+1;
+  var span=document.getElementById('çount');
+  span.innerHTML=counter.toString();
+};
+/*button.onclick=function(){
     //create a request object
     var request=new XMLHttpRequest();
     //capturing the response and store it in the variable
@@ -21,7 +26,9 @@ button.onclick=function(){
     //making the request
     request.open('GET','http://charanreddyanumula.imad.hasura-app.io/counter',true);
     request.send(null);
-};
+};*/
+
+
 //->names-code:
 var submit=document.getElementById('submit_btn');
 submit.onclick=function(){
@@ -39,7 +46,7 @@ submit.onclick=function(){
         if(request.readystate===XMLHttpRequest.DONE)
         {//take some ACTION
         if(request.status==200)
-        {//capture a list of names and rendure them 
+        { //capture a list of names and rendure them 
          var names=request.responseText;
          names=JSON.parse(names);console.log('Loaded!');
 var button=document.getElementById('counter');
