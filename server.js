@@ -49,9 +49,9 @@ function createtemplate(data){
 
 //submitting names using url
 var names=[];
-app.get('/submit-name',function(req,res){
+app.get('/submit-name/:name',function(req,res){
     //charanreddyanumula.imad.hasura-app.io/submit-name?name=sharan
-    var name=request.query.name;
+    var name=request.params.name;
     names.push(name);
     //json
     res.send(JSON.stringfy(names));
