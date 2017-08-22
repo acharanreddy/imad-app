@@ -12,7 +12,7 @@ button.onclick=function(){
         {
          var counter=request.responseText;
          var span=document.getElementById('count')
-         spam.innerHTML=counter.toString();
+         span.innerHTML=counter.toString();
          }
         }
         
