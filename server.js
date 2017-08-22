@@ -45,7 +45,18 @@ function createtemplate(data){
 `
 
 
-}
+};
+
+//submitting names using url
+var names=[];
+app.get('/submit-name',function(req,res){
+    //charanreddyanumula.imad.hasura-app.io/submit-name?name=sharan
+    var name=request.query.name;
+    names.push(name);
+    //json
+    res.send(JSON.stringfy(names));
+});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
