@@ -70,7 +70,7 @@ app.get('/counter',function(req,res){
     counter=counter+1;
     res.send(counter.toString());
     
-})
+});
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
