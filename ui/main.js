@@ -21,7 +21,7 @@ button.onclick=function(){
     //making the request
     request.open('GET','http://charanreddyanumula.imad.hasura-app.io/counter',true);
     request.send(null);
-}
+};
 //->names-code:
 var submit=document.getElementById('submit_btn');
 submit.onclick=function(){
