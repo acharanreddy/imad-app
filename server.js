@@ -41,11 +41,7 @@ function createtemplate(data){
               </div>
         </div>
     </body>
-    </html>
-`
-
-
-};
+    </html>';
 
 //submitting names using url
 var names=[];
