@@ -11,6 +11,7 @@ var config={
     port:'5432',
     password:process.env.DB_PASSWORD
     };
+    
 var pool=new Pool(config);
 app.get('/test-db', function (req, res) {
     //make a select request
@@ -19,7 +20,7 @@ app.get('/test-db', function (req, res) {
       if(err)
         { res.status(500).send(err.toString());
         }else{
-            res.send(JSON.stringify(result.rows));
+            res.send(JSON.stringify(result));
         }
   });
 });
