@@ -96,11 +96,10 @@ app.get('/article/:articleName',function(req,res){
             if(result.rows.length===0){
                 res.status(406).send("article not found");
             }else{
-               var aticleData= results.row[0]; 
+               var articleData= results.row[0]; 
                 res.send(createtemplate(articleData));  
             }
-            
-           
+
         }
     });
  
