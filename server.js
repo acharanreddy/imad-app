@@ -28,17 +28,20 @@ app.get('/test-db', function (req, res) {
     article-one:{
         title:'article-one--> charan',
         heading='Article One',
+        date='2017-07-31',
         content:` here u r going to get my personal data
                         ND professional skils too`
     }
      article-two:{
         title:'article-two--> charan',
         heading='Article two',
+        date='2017-08-01',
         content:` page2:here r the page2 details`}
 }*/
 function createtemplate(data){
     var title=data.title;
     var heading=data.heading;
+    var date=data.date;
     var content=data.content;
     var htmltemplate=`
     <html>
@@ -54,6 +57,8 @@ function createtemplate(data){
                   <a href='/'>Home</a>
               </div>
               <h3>${heading}</h3>
+              <div>
+              ${date.toDateString()}
               <div>
                 
                    ${content}
@@ -90,7 +95,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 //getting data of articles from data-base
 app.get('/article/:articleName',function(req,res){
-    pool.query("SELECT *FROM test WHERE title='"+req.params.articleName+"'",function(err,result){
+    pool.query("SELECT *FROM test WHERE title=='"+req.params.articleName+"'",function(err,result){
         if(err){
             res.status(404).send(err.toString());
         }else{
