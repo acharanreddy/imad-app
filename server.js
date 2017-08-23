@@ -10,7 +10,7 @@ var config={
     host:'db.imad.hasura-app.io',
     port:'5432',
     password:process.env.DB_PASSWORD
-};
+    };
 var pool=new Pool(confiq);
 app.get('/test-db', function (req, res) {
     //make a select request
@@ -61,6 +61,7 @@ function createtemplate(data){
         </div>
     </body>
     </html>';
+    };
 
 //submitting names using url
 var names=[];
@@ -97,12 +98,13 @@ app.get('/counter',function(req,res){
     res.send(counter.toString());
     
 });
-
+var s=10;
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
-var port= 80;
-app.listen(port, function () {
-  console.log(`IMAD course app listening on port ${port}!`);
+var port= 8080;
+app.listen(8080, function () {
+
+console.log(`IMAD course app listening on port ${port}!`);
 });
