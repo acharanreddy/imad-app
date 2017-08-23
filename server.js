@@ -89,7 +89,7 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 app.get('/article/:articleName',function(req,res){
-    pool.query("select *from test where title="+req.params.articleName,function(err,result){
+    pool.query("SELECT *FROM test WHERE title="+req.params.articleName,function(err,result){
         if(err){
             res.status(404).send(err.toString());
         }else{
