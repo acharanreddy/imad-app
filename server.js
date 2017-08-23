@@ -92,6 +92,7 @@ app.get('/ui/main.js', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
+
 //getting data of articles from data-base
 app.get('/article/:articleName',function(req,res){
     pool.query("SELECT *FROM article WHERE title= '" + req.params.articleName + "'",function(err,result){
