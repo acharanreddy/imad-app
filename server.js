@@ -88,8 +88,10 @@ app.get('/ui/main.js', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
+//getting data of articles from data-base
 app.get('/article/:articleName',function(req,res){
-    pool.query("SELECT *FROM test WHERE title="+req.params.articleName,function(err,result){
+    var data=req.params.articleName;
+    pool.query("SELECT *FROM test WHERE title=data",function(err,result){
         if(err){
             res.status(404).send(err.toString());
         }else{
@@ -110,8 +112,6 @@ app.get('/counter',function(req,res){
     res.send(counter.toString());
     
 });
-var s=10;
-
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
