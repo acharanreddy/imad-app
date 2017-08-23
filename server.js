@@ -95,7 +95,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 //getting data of articles from data-base
 app.get('/article/:articleName',function(req,res){
-    pool.query("SELECT *FROM test WHERE title= '" + req.params.articleName + "'",function(err,result){
+    pool.query("SELECT *FROM article WHERE title= '" + req.params.articleName + "'",function(err,result){
         if(err){
             res.status(404).send(err.toString());
         }else{
