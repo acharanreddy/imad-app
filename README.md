@@ -1,4 +1,4 @@
 # imad-app
 
 IMAD course application.
-       Building the web apps using hasura domains.
+       Building the web apps .
