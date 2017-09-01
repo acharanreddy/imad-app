@@ -2,10 +2,11 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
+var bodyParser=require('body-parser');
 var app = express();
 app.use(morgan('combined'));
-var crypto=require('crypto');
 app.use(bodyParser.json());
+var crypto=require('crypto');
 var config={
     user:'charanreddyanumula',
     database:'charanreddyanumula',
