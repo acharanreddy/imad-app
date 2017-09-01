@@ -4,8 +4,8 @@ var path = require('path');
 var Pool=require('pg').Pool;
 var app = express();
 app.use(morgan('combined'));
-app.use(bodyParser.json());
 var crypto=require('crypto');
+app.use(bodyParser.json());
 var config={
     user:'charanreddyanumula',
     database:'charanreddyanumula',
