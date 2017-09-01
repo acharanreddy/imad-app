@@ -88,6 +88,23 @@ app.get('/hash/:input', function (req, res) {
     var hashedString=hash(req.params.input,'this is a salt random value');
     res.send(hashedString);
 });
+
+app.get('/create-user', function (req, res) {
+ //username and password
+ var salt=crypto.getRandomBytes(128).toString('hex');
+ var dbString=hash(password,salt);
+ pool.query('INSERT INTO "user"(username,password)VALUES($1,$2)',[username,dbstring],function(err,result){
+      if(err)
+        { res.status(500).send(err.toString());
+        }else{
+            res.send('user sussesfully created'+username);
+        }
+     
+ });
+});
+
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
